@@ -20,3 +20,7 @@ def run_lgb(df):
     print('Accuracy Score:  ', round(metrics.accuracy_score(y, y_pred), 2))
     print('Roc Auc Score:  ', round(roc_auc_score(y, y_pred), 2))
     print('Classification Report: \n', classification_report(y, y_pred, target_names=['0', '1']))
+
+    #pickle.dump(clf, open(config.MODEL_FILENAME, 'wb'))
+    #config.s3_client.upload_file(config.MODEL_FILENAME, config.S3_BUCKET_NAME, config.MODEL_FILENAME)
+    #print('model uploaded to s3 bucket')
