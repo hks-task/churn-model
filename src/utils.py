@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def reduce_mem_usage(df, verbose=False):
     start_mem = df.memory_usage().sum() / 1024 ** 2
     int_columns = df.select_dtypes(include=["int"]).columns
