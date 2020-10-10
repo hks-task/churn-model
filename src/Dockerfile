@@ -8,4 +8,4 @@ RUN pip install -r pip-requirements.txt
 
 ADD . .
 
-CMD tail -f /dev/null
+ENTRYPOINT ["python", "-u", "main.py"]
