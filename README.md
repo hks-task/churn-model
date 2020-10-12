@@ -1,101 +1,87 @@
+Churn Prediction Model
+This repository is a general template for the churn prediction model.
 
-# Technical task for the _Data Scientist_ role at the Marketing Tech dept., Delivery Hero SE  
-  
-The exercise is based on a simplified version of a real model built by our team. *Its objective* is, to predict whether a customer is going to return (order again from us) in *the upcoming 6 months* or not.  
-So the main idea is, *to create an algorithm to correctly predict the **_is_returning_customer_*** label (see details [here](#Labeled-data)) based on the [provided data](#Data-dictionary).  
-  
-You can solve this exercise using the Python data ecosystem with the usual well-known tools and libraries.  
-  
-## Data dictionary  
-  
-There are [two data samples](./data/) provided as (gunzipped) CSV files.  
-  
-### Order data  
-  
-The [order dataset](./data/machine_learning_challenge_order_data.csv.gz) contains the history of orders placed by customers acquired between 2015-03-01 and 2017-02-28. The data points were *synthetically* generated to reflect patterns of real data for the purpose of the exercise.  
-  
-The dataset columns definition:  
-  
-|Column|Description|  
-|---|---|  
-|*customer_id*|Unique customer ID.|  
-|*order_date*|Local date of the order.|  
-|*order_hour*|Local hour of the order.|  
-|*customer_order_rank*|Number of a successful order counted in chronological order starting with 1 (an empty value would correspond to a failed order).|  
-|*is_failed*|**0** if the order succeeded.<br>**1** if the order failed.|  
-|*voucher_amount*|The discounted amount if a voucher (discount) was used at order's checkout.|  
-|*delivery_fee*|Fee charged for the delivery of the order (if applicable).|  
-|*amount_paid*|Total amount paid by the customer (the *voucher_amount* is already deducted and the *delivery_fee* is already added).|  
-|*restaurant_id*|Unique restaurant ID.|  
-|*city_id*|Unique city ID.|  
-|*payment_id*|Identifies the payment method the customer has chosen (such as cash, credit card, PayPal, ...).|  
-|*platform_id*|Identifies the platform the customer used to place the order (web, mobile app, mobile web, …).|  
-|*transmission_id*|Identifies the method used to place the order to the restaurant (fax, email, phone, and different kinds of proprietary devices or point-of-sale systems).|  
-  
-The data rows are ordered by *customer_id* and *order_date*: all orders of one customer appear in chronological order on consecutive rows.  
-  
-It is not necessary to know the exact meaning of the IDs, therefore we do not provide the mapping from the IDs to actual restaurants / cities / payment methods / platforms / transmission methods.  
-  
-### Labeled data  
-  
-The [labeled dataset](./data/machine_learning_challenge_labeled_data.csv.gz) flags whether the customers placed at least one order within 6 months after 2017-02-28 or not.  
-  
-The dataset columns definition:  
-|Column|Description|  
-|---|---|  
-|*customer_id*|Unique customer ID.|  
-|*is_returning_customer*|**0** if the customer did not return (did not order again) in the 6 months after 2017-02-28.<br>**1** if the customer returned (ordered again) at least once after 2017-02-28.|  
-  
-The data rows are ordered by *customer_id*.  
-  
-## Solution submission criteria  
-  
-Please send us back:  
-  
- - All the code and files you used (both, for exploration and the final ones) as a GitHub repository (see [below](#How-to-submit-the-code) for further details)  
- - A summary of the data transformations that you tried, and the ones you kept (we should be able to see this in the commit history)  
- - A description of the ML models you tried, and the one you kept (we should be able to see this in the commit history)  
- - A measurement of how good your models are (at least for the best one)  
- - Any other findings on the data that you would like to share  
- - Ideas about any further models or data transformations that you would try if you had more time  
-  
-Please try to make commits as often and concise as possible to allow us to follow your working process.  
-  
-### How to submit the code  
-  
-Please clone this repo to a public Github repo that does not contain an obvious name (to avoid other candidates from copying it). Just choose a couple of random dictionary words and name your repo with them :-)  
-  
-The GitHub repo should contain:  
- - All the code (both for exploration and the models) and the commits history showing the process you followed  
- - The instructions on how to train and evaluate the model you would build  
-  
-*Please share **the full** codebase you developed while working on the task*.  
-  
-## How we evaluate the task  
-  
-Please take into account the solution quality points that we value the most:  
-  
- - The solution is working, i.e. codebase can be executed by us in our environment by following your instructions  
- - The structure of the repository is clear  
- - The codebase is human-readable  
- - Python best practices are being followed, i.e. good development practices and Python principles and idioms are in place  
- - The commits are atomic  
- - Unit/integration/smoke tests are implemented  
-  
-Regarding the modeling task, we value:  
-  
- - Clarity of the reasoning behind assumptions and modelling approach you are going to select  
- - EDA  
- - Feature engineering  
- - Algorithm(s) chosen  
- - Models predictive performance evaluation and monitoring  
-  
-## Final notes  
-  
-We value a working solution and the reasoning of choices behind the solution the most. With your solution, please try to express yourself in a way you would do, while working on a real business problem.  
-  
-Please do not hesitate to write us in case of further questions. We would be happy to address them as soon as possible to clarify the task.  
-  
-We hope that you find the exercise interesting, and it is worth your time.  
-  
-Good luck, and looking forward to meeting you at the next interview round!
+Getting Started
+
+$ git clone https://github.com/hks-task/churn-model.git
+$ cd churn-model/src
+$ python main.py
+
+Usage
+
+The service template can be executed by running main.py, with the precondition that necessary requirements are provided.
+The general pipeline for this service template is the following:
+
+* Fetch the necessary data from files 
+* Explanatory data analysis (+notebooks) 
+* Feature engineering 
+* Model & parameter selection (+notebooks)
+
+* Performance evaluation and monitoring 
+* Export the model to a S3 bucket. 
+The template in this repository has functions that successfully and efficiently execute all of these steps.
+
+Components
+
+The pipeline consists of 5 components:
+
+data_access.py: read order, label datasets and merge them
+utils.py: reduce memory usage
+functions.py: data transformation&engineering 
+model.py: run the xgb model
+main.py: execute all pipeline
+
+
+The notebooks consists of 5 components
+ 1. explanatory_data_analysis
+- Import libraries & datasets
+- Check datatypes,  duplicative and distinct values 
+- Check missing values and impute them
+  -   Check anomalies and handle with them
+- Visualize orders in year, month, day, hour breakdowns
+- Check revenue distribution by client 
+- Visualize target variable
+- Create order vs recency matrix
+- Create correlation matrix
+
+2a. baseline_model (similar for 2b and 2c)
+
+- Import libraries & datasets
+- Change data types and reduce memory usage
+- Label encode categorical features
+- Fill null values with the forward-filling method
+- Convert raw data to a session format
+- Run xgb model (cv)
+- Tune hyper-parameters 
+- Ensemble top 3 classifiers.
+- Calculate scores
+
+2b. 2a + time-related features (recency, number of days from the first order, day of week, etc.)
+
+2c. 2b + consecutive and rolling features in 3 days, 1, 2, 4, 12, 24 weeks, and all time windows
+
+
+We chose the tree-based xgboost model because it is easy to explain and implement for production in cloud services and also more successful in tabular datasets. 
+
+We give more weights on class 1 using the scale pos weight parameter to label returned customers more correctly. In other words, we weight roc-auc rather than accuracy.
+
+We could spend more time on different models (NN, CatBoost, LGBM, etc.) or tuning hyper-parameters but we should always keep in mind that it is impossible to predict all customers correctly. (Ex: predicts a customer with 1 order and 24+ week recency to give an order again.) 
+
+Other features especially for the last order would increase model performance: 
+
+- Rating
+- Comment
+- Delivery time
+- Live chat experience
+- Cancel reasons (courier, rest, user, etc.)
+- Socio-economic: Device type & OS type & District
+
+For further analysis, it would be also good to get geolocation data because it helps to understand whether a customer in our service area currently. (holiday, business trip, etc.)
+
+
+Author
+Hakkı Kaan Şimşek
+
+
+
+
