@@ -3,7 +3,7 @@ from sklearn import metrics
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import classification_report
 from sklearn.metrics import roc_auc_score
-import xgboost
+import lightgbm
 
 
 def run_lgb(df):
@@ -12,8 +12,10 @@ def run_lgb(df):
     X = df.drop(columns=['customer_id', 'order_date', 'date', 'is_returning_customer',
                          'first_order_date', 'index', 'order_date_shift'])
 
-    clf = xgboost.XGBClassifier(objective='binary:logistic', n_jobs=-1, scale_pos_weight=3)
-    clf.fit(X, y)
+
+    clf = lightgbm.LGBMClassifier(n_jobs=-1, scale_pos_weight=2,
+                            n_estimators=800, min_child_weight=2, max_depth=6,
+                            learning_rate=0.05, colsample_bytree=0.7000000000000002, num_leaves=30)
 
     y_pred = cross_val_predict(clf, X, y, cv=constants.kfold)
 
