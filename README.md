@@ -34,10 +34,11 @@ The pipeline consists of 5 components:
 * model.py: run the xgb model
 * main.py: execute all pipeline
 
-
 The notebooks consists of 5 components:
 
-#### 1. explanatory_data_analysis ####
+Most functions in notebooks are similar. We could import them from a helper file.
+
+#### 1. Explanatory Data Analysis ####
 
 - Import libraries & datasets
 - Check datatypes,  duplicative and distinct values 
@@ -49,34 +50,32 @@ The notebooks consists of 5 components:
 - Create order vs recency matrix
 - Create correlation matrix
 
-#### 2a. baseline_model (similar for 2b and 2c) ####
+#### 2a. Baseline Model (similar for 2b and 2c) ####
 
 - Import libraries & datasets
 - Change data types and reduce memory usage
 - Label encode categorical features
 - Fill null values with the forward-filling method
 - Convert raw data to a session format
-- Run xgb model (cv)
-- Tune hyper-parameters 
-- Ensemble top 3 classifiers.
+- Run different models
 - Calculate scores
 
-#### 2b. 2a + time-related features (recency, number of days from the first order, day of week, etc.) ####
+#### 2b. Baseline Model+Time Features ####
 
-#### 2c. 2b + consecutive and rolling features in 3 days, 1, 2, 4, 12, 24 weeks, and all time windows ####
+#### 2c. Baseline Model+Time Features+Rolling Features ####
 
-We chose the xgboost model because it is easy to explain tree-based models and implement them for production in cloud services and also more successful in tabular datasets. 
+#### 3. Final Model+Parameter Selection ####
 
-We could spend more time on different models (NN, CatBoost, LGBM, etc.) or tuning hyper-parameters but there is a trade-off between time you spent and improvement in the model. 
+#### 4. Model Results+Interpretation ####
 
-Other features especially for the last order would increase model performance: 
+We could spend more time on different models (NN, CatBoost, etc.) or tuning hyper-parameters but there is a trade-off between time you spent and improvement in the model. Data quality and extra features would increase model performance as below: 
 
 - Rating
 - Comment
 - Delivery time
 - Live chat experience
 - Cancel reasons (courier, rest, user, etc.)
-- Socio-economic: Device type & OS type & District
+- Age, gender, device type, district, OS type
 
 For further analysis, it would be also good to get geolocation data because it helps to understand whether a customer in our service area currently. (holiday, business trip, etc.)
 
