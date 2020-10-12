@@ -65,11 +65,9 @@ The notebooks consists of 5 components:
 
 #### 2c. 2b + consecutive and rolling features in 3 days, 1, 2, 4, 12, 24 weeks, and all time windows ####
 
-We chose the tree-based xgboost model because it is easy to explain and implement for production in cloud services and also more successful in tabular datasets. 
+We chose the xgboost model because it is easy to explain tree-based models and implement them for production in cloud services and also more successful in tabular datasets. 
 
-We give more weights on class 1 using the scale pos weight parameter to label returned customers more correctly. In other words, we weight roc-auc rather than accuracy.
-
-We could spend more time on different models (NN, CatBoost, LGBM, etc.) or tuning hyper-parameters but we should always keep in mind that it is impossible to predict all customers correctly. (Ex: predicts a customer with 1 order and 24+ week recency to give an order again.) 
+We could spend more time on different models (NN, CatBoost, LGBM, etc.) or tuning hyper-parameters but there is a trade-off between time you spent and improvement in the model. 
 
 Other features especially for the last order would increase model performance: 
 
@@ -82,5 +80,5 @@ Other features especially for the last order would increase model performance:
 
 For further analysis, it would be also good to get geolocation data because it helps to understand whether a customer in our service area currently. (holiday, business trip, etc.)
 
-Author
+### Author ###
 Hakkı Kaan Şimşek
