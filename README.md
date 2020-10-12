@@ -27,7 +27,6 @@ The template in this repository has functions that successfully and efficiently 
 ### Components ###
 
 The pipeline consists of 5 components:
-
 * data_access.py: read order, label datasets and merge them
 * utils.py: reduce memory usage
 * functions.py: data transformation&engineering 
@@ -67,6 +66,8 @@ Most functions in notebooks are similar. We could import them from a helper file
 #### 3. Final Model+Parameter Selection ####
 
 #### 4. Model Results+Interpretation ####
+
+![Screenshot](feature_importance.png)
 
 We could spend more time on different models (NN, CatBoost, etc.) or tuning hyper-parameters but there is a trade-off between time you spent and improvement in the model. Data quality and extra features would increase model performance as below: 
 
