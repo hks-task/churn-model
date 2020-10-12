@@ -37,7 +37,8 @@ The pipeline consists of 5 components:
 
 The notebooks consists of 5 components:
 
-* 1. explanatory_data_analysis
+#### 1. explanatory_data_analysis ####
+
 - Import libraries & datasets
 - Check datatypes,  duplicative and distinct values 
 - Check missing values and impute them
@@ -48,7 +49,7 @@ The notebooks consists of 5 components:
 - Create order vs recency matrix
 - Create correlation matrix
 
-* 2a. baseline_model (similar for 2b and 2c)
+#### 2a. baseline_model (similar for 2b and 2c) ####
 
 - Import libraries & datasets
 - Change data types and reduce memory usage
@@ -60,10 +61,9 @@ The notebooks consists of 5 components:
 - Ensemble top 3 classifiers.
 - Calculate scores
 
-* 2b. 2a + time-related features (recency, number of days from the first order, day of week, etc.)
+#### 2b. 2a + time-related features (recency, number of days from the first order, day of week, etc.) ####
 
-* 2c. 2b + consecutive and rolling features in 3 days, 1, 2, 4, 12, 24 weeks, and all time windows
-
+#### 2c. 2b + consecutive and rolling features in 3 days, 1, 2, 4, 12, 24 weeks, and all time windows ####
 
 We chose the tree-based xgboost model because it is easy to explain and implement for production in cloud services and also more successful in tabular datasets. 
 
