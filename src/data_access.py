@@ -8,4 +8,5 @@ def read_data():
     label_df = pd.read_csv('../input/machine_learning_challenge_labeled_data.csv')
     print('Label data has {} rows and {} columns'.format(label_df.shape[0], label_df.shape[1]))
     df = order_df.merge(label_df, on='customer_id')
+    print("")
     return df

@@ -61,5 +61,5 @@ def feature_engineering(df, break_point):
     df = df.merge(three_day, how='left').merge(one_week, how='left').merge(two_week, how='left').merge(four_week,
                                                                                                        'left').merge(
         twelve_week, 'left').merge(twenty_four_week, 'left').merge(all_week, 'left').reset_index()
-
+    print("")
     return df
