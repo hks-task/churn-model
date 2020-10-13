@@ -4,15 +4,15 @@ This repository is a template for the *churn prediction* model. *Its objective* 
 
 ## Data dictionary  
   
-There are [two data samples](./data/) provided as (gunzipped) CSV files.  
+There are [two data samples](./input/) provided as CSV files.  
   
 ### Order data  
   
-The [order dataset](./data/machine_learning_challenge_order_data.csv.gz) contains the history of orders placed by customers acquired between 2015-03-01 and 2017-02-28. The data points were *synthetically* generated to reflect patterns of real data for the purpose of the exercise.  
+The [order dataset](./input/machine_learning_challenge_order_data.csv) contains the history of orders placed by customers acquired between 2015-03-01 and 2017-02-28. The data points were *synthetically* generated to reflect patterns of real data for the purpose of the exercise.  
 
 ### Labeled data  
   
-The [labeled dataset](./data/machine_learning_challenge_labeled_data.csv.gz) flags whether the customers placed at least one order within 6 months after 2017-02-28 or not.  
+The [labeled dataset](./input/machine_learning_challenge_labeled_data.csv) flags whether the customers placed at least one order within 6 months after 2017-02-28 or not.  
 
 ### Getting Started ###
 
