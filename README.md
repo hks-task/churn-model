@@ -94,7 +94,7 @@ The notebooks consist of 5 components:
 - Visualize model predictions in order-recency bins matrix
 - Analyze model performance in order-recency bins matrix
 
-![Screenshot](feature_importance.png)
+![Screenshot](noteboooks/output/feature_importance.png)
 
 For further analysis, the features below would increase model performance: 
 
