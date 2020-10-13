@@ -1,6 +1,6 @@
 # Churn Prediction Model #
 
-This repository is a template for the *churn prediction* model. * It's objective* is to predict whether a customer is going to return (order again from us) in *the upcoming 6 months* or not.  
+This repository is a template for the **churn prediction** model. **It's objective** is to predict whether a customer is going to return (order again from us) in **the upcoming 6 months** or not.  
 
 ## Data dictionary  
   
@@ -48,7 +48,7 @@ The pipeline consists of 5 components:
 
 The notebooks consist of 5 components:
 
-(Note: Most functions (read_data, transform_data, etc.) in notebooks are similar and we could import them from a helper file rather than creating in every notebook. In this part, we aim reviewers to analyze notebooks without spending time in different folders. In the .py version, they are executed efficiently.)
+(**Note**: Most functions (read_data, transform_data, etc.) in notebooks are similar and we could import them from a helper file rather than creating in every notebook. In this part, we design notebooks for reviewers for not spending their time between different folders. In the .py version, they are executed efficiently.)
 
 
 #### 1. Explanatory Data Analysis ####
