@@ -115,4 +115,4 @@ For further analysis, the features below would increase model performance:
 We could spend more time on different models (NN, CatBoost, stacked models, etc.) or tuning hyperparameters, but there is a trade-off between the time you spent and improvement in the model scores. 
 
 ### Author ###
-Hakkı Kaan Şimşek
+Hakkı Kaan Şimşek - [github](https://github.com/HakkiKaanSimsek)
