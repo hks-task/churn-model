@@ -38,10 +38,12 @@ The template in this repository has functions that successfully execute all of t
 
 ### Components ###
 
-The pipeline consists of 5 components:
+The pipeline consists of 7 components:
 
 * data_access.py: read order, label datasets and merge them
 * utils.py: reduce memory usage
+* pip-requirements.txt: get necessary packages
+* Dockerfile: build an image
 * functions.py: data transformation & engineering 
 * model.py: run the lgb model
 * main.py: execute all pipeline
@@ -63,7 +65,7 @@ The notebooks consist of 5 components:
 - Create order-recency matrix
 - Create a correlation matrix
 
-#### 2a. Baseline Model (similar for 2b and 2c) ####
+#### 2a. Baseline Model (similar steps in 2b and 2c) ####
 
 - Import libraries & datasets
 - Change datatypes and reduce memory usage
@@ -72,6 +74,8 @@ The notebooks consist of 5 components:
 - Convert raw data to a session format
 - Run different models
 - Calculate and compare scores
+
+![Screenshot](./notebooks/output/model_comparison.png)
 
 #### 2b. Baseline Model+Time Features ####
 
@@ -106,8 +110,7 @@ For further analysis, the features below would increase model performance:
 - Live chat experience
 - Cancel reasons (courier, rest, user, etc.)
 - Age, gender, device type, district, OS type
-
-It would be good to get geolocation data because it helps to understand whether a customer in our service area currently. (holiday, business trip, etc.)
+- Geolocation data (whether customers in our service area or not)
 
 We could spend more time on different models (NN, CatBoost, stacked models, etc.) or tuning hyperparameters, but there is a trade-off between the time you spent and improvement in the model scores. 
 
