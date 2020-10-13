@@ -82,7 +82,7 @@ The notebooks consist of 5 components:
 #### 2c. Baseline Model+Time Features+Rolling Features ####
 
 - Add day differences between consecutive orders 
-- Add mean of demand, is_failed, voucher_amount, delivery_fee, amount_paid, date_diff features in 3 days, 1, 2, 4, 12, 24 weeks
+- Add mean of features in 3 days, 1, 2, 4, 12, 24 weeks (std(), sum() may be added.)
 
 #### 3. Final Model+Parameter Selection ####
 
@@ -90,9 +90,11 @@ The notebooks consist of 5 components:
 
 #### 4. Model Results+Interpretation ####
 
-- Save client_id, y_pred, y_actual results
+- Create confusion matrix
+- Create feature importance chart
 - Visualize model predictions in order-recency bins matrix
 - Analyze model performance in order-recency bins matrix
+- Save client_id, y_pred, y_actual results
 
 ![Screenshot](./notebooks/output/feature_importance.png)
 
