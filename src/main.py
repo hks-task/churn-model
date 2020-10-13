@@ -10,5 +10,5 @@ if __name__ == "__main__":
     df = read_data()
     df = reduce_mem_usage(df, True)
     df = transform_data(df)
-    df = feature_engineering(df, constants.break_point)
+    df = feature_engineering(df, constants.BREAK_POINT)
     predicted = run_lgb(df)

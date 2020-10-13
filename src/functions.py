@@ -14,7 +14,7 @@ def getWeeklyDates(df, break_point):
     twelve_week = df[df['order_date'] >= break_point - timedelta(days=84)]
     twenty_four_week = df[df['order_date'] >= break_point - timedelta(days=168)]
     all_week = df
-    return three_day, one_week, two_week, four_week, twelve_week, twenty_four_week,all_week
+    return three_day, one_week, two_week, four_week, twelve_week, twenty_four_week, all_week
 
 
 def transform_data(df):

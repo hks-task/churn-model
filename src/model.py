@@ -13,11 +13,9 @@ def run_lgb(df):
                          'first_order_date', 'index', 'order_date_shift'])
 
 
-    clf = lightgbm.LGBMClassifier(n_jobs=-1, scale_pos_weight=2,
-                            n_estimators=800, min_child_weight=2, max_depth=6,
-                            learning_rate=0.05, colsample_bytree=0.7000000000000002, num_leaves=30)
+    clf = lightgbm.LGBMClassifier(**constants.MODEL_PARAMETERS)
 
-    y_pred = cross_val_predict(clf, X, y, cv=constants.kfold)
+    y_pred = cross_val_predict(clf, X, y, cv=constants.K_FOLD)
 
     print('Accuracy Score:  ', round(metrics.accuracy_score(y, y_pred), 2))
     print('Roc Auc Score:  ', round(roc_auc_score(y, y_pred), 2))
