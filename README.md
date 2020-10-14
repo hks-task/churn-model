@@ -102,7 +102,7 @@ The notebooks consist of 5 components:
 - Analyze model performance in order-recency bins matrix
 - Save client_id, y_pred, y_actual results 
 
-![Screenshot](./notebooks/output/model_results.png)
+![Screenshot](./notebooks/output/final_model_result.png)
 
 The features below would increase model performance: 
 

@@ -62,10 +62,10 @@ def feature_engineering(df, break_point):
                                                                                                        'left').merge(
         twelve_week, 'left').merge(twenty_four_week, 'left').merge(all_week, 'left').reset_index()
 
-    df['city_count'] = df.groupby('city_id')['customer_id'].transform('nunique')
-    df['rest_count'] = df.groupby('restaurant_id')['customer_id'].transform('nunique')
+    df['city_client_count'] = df.groupby('city_id')['customer_id'].transform('nunique')
+    df['rest_client_count'] = df.groupby('restaurant_id')['customer_id'].transform('nunique')
 
-    df['city_mean'] = df.groupby('city_id')['is_returning_customer'].transform('mean')
-    df['rest_mean'] = df.groupby('restaurant_id')['is_returning_customer'].transform('mean')
+    df['city_churn_mean'] = df.groupby('city_id')['is_returning_customer'].transform('mean')
+    df['rest_churn_mean'] = df.groupby('restaurant_id')['is_returning_customer'].transform('mean')
     print("")
     return df
