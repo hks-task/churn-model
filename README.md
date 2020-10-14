@@ -102,7 +102,7 @@ The notebooks consist of 5 components:
 
 ![Screenshot](./notebooks/output/feature_importance.png)
 
-For further analysis, the features below would increase model performance: 
+The features below would increase model performance: 
 
 - Rating
 - Comment
@@ -112,7 +112,8 @@ For further analysis, the features below would increase model performance:
 - Age, gender, device type, district, OS type
 - Geolocation data (whether customers in our service area or not)
 
-We could spend more time on different models (NN, CatBoost, stacked models, etc.) or tuning hyperparameters, but there is a trade-off between the time you spent and improvement in the model scores. 
+There is a trade-off between the time you spent and the improvement in the model scores. We could spend more time on different models (NN, CatBoost, stacked models, etc.) or tuning hyperparameters for further studies.
+
 
 ### Author ###
 Hakkı Kaan Şimşek - [github](https://github.com/HakkiKaanSimsek)
