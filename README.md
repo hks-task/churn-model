@@ -60,7 +60,7 @@ The notebooks consist of 5 components:
 - Check missing values and impute them
 - Check anomalies and handle with them
 - Visualize orders in a year, month, day, hour breakdowns
-- Check revenue distribution by client 
+- Visualize revenue distribution by client 
 - Visualize target variable
 - Create order-recency matrix
 - Create a correlation matrix
