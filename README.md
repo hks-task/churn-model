@@ -38,7 +38,7 @@ The template in this repository has functions that successfully execute all of t
 
 ### Components ###
 
-The pipeline consists of 7 components:
+The template consists of 7 components:
 
 * data_access.py: read order, label datasets and merge them
 * utils.py: reduce memory usage
@@ -71,22 +71,24 @@ The notebooks consist of 5 components:
 - Change datatypes and reduce memory usage
 - Label encode categorical features
 - Fill null values with the forward-filling method
+- Add recency, number of days from the first order
+- Add year, month, week, day, is weekend features
 - Convert raw data to a session format
 - Run different models
 - Calculate and compare scores
 
 ![Screenshot](./notebooks/output/model_comparison.png)
 
-#### 2b. Baseline Model+Time Features ####
-
-- Add recency, number of days from the first-order features
-- Add year, month, week, day, day of the week, is weekend features
-- Add feature importance bar + confusion matrix
-
-#### 2c. Baseline Model+Time Features+Rolling Features ####
+#### 2b.Baseline Model+Rolling Window Features ####
 
 - Add day differences between consecutive orders 
 - Add mean of features in 3 days, 1, 2, 4, 12, 24 weeks (std(), sum() may be added.)
+
+
+#### 2c.Baseline Model+Rolling Window+Categorical Features ####
+
+- Add unique customer count by restaurant, city
+- Add churn rate by restaurant, city
 
 #### 3. Final Model+Parameter Selection ####
 
@@ -98,7 +100,7 @@ The notebooks consist of 5 components:
 - Create feature importance chart
 - Visualize model predictions in order-recency bins matrix
 - Analyze model performance in order-recency bins matrix
-- Save client_id, y_pred, y_actual results
+- Save client_id, y_pred, y_actual results 
 
 ![Screenshot](./notebooks/output/feature_importance.png)
 

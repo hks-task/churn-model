@@ -1,9 +1,7 @@
 import constants
-from sklearn import metrics
-from sklearn.model_selection import cross_val_predict
-from sklearn.metrics import classification_report
-from sklearn.metrics import roc_auc_score
+from sklearn.model_selection import cross_val_score
 import lightgbm
+import pandas as pd
 
 
 def run_lgb(df):
@@ -14,11 +12,16 @@ def run_lgb(df):
 
     clf = lightgbm.LGBMClassifier(**constants.MODEL_PARAMETERS)
 
-    y_pred = cross_val_predict(clf, X, y, cv=constants.K_FOLD)
+    auc_mean = cross_val_score(clf, X, y, cv=constants.K_FOLD, scoring="roc_auc").mean()
+    auc_std = cross_val_score(clf, X, y, cv=constants.K_FOLD, scoring="roc_auc").std()
 
-    print('Accuracy Score:  ', round(metrics.accuracy_score(y, y_pred), 3))
-    print('Roc Auc Score:  ', round(roc_auc_score(y, y_pred), 3))
-    print('Classification Report: \n', classification_report(y, y_pred, target_names=['0', '1']))
+    acc_mean = cross_val_score(clf, X, y, cv=constants.K_FOLD, scoring="accuracy").mean()
+    acc_std = cross_val_score(clf, X, y, cv=constants.K_FOLD, scoring="accuracy").std()
+
+    model_result = round(pd.DataFrame({'Roc-Auc Mean': auc_mean, 'Roc-Auc Std': auc_std,
+                                       'Accuracy Mean': acc_mean, 'Accuracy Std': acc_std},
+                                      index=['LGBM']), 4)
+    print(model_result)
 
     #pickle.dump(clf, open(config.MODEL_FILENAME, 'wb'))
     #config.s3_client.upload_file(config.MODEL_FILENAME, config.S3_BUCKET_NAME, config.MODEL_FILENAME)
